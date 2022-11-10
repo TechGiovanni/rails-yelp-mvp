@@ -1,0 +1,16 @@
+<!-- app/views/restaurants/new.html.erb -->
+<%= form_with model: @restaurant do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.label :phone_number%>
+  <%= f.number_field :phone_number %>
+  <%= f.select :category, ["chinese", "italian", "japanese", "french", "belgian"] %>
+  <%= f.submit %>
+<% end %>
+
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+<% end %>
