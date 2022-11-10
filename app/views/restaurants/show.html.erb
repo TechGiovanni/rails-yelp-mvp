@@ -4,11 +4,30 @@
 <p><%= @restaurant.phone_number%></p>
 <p><%= @restaurant.category%></p>
 
-<p><%= @review.rating %></p>
-<p><%= @review.content %></p>
 
+  <%= simple_form_for [@restaurant, @review] do |f| %>
+    <%= f.input :rating, collection: 0..5 %>
+    <%= f.input :content%>
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
 
-<%= link_to 'Create new review', new_restaurant_review_path(@restaurant)%>
+<%= link_to 'See all restaurants', restaurants_path %>
 
-
-<%= link_to 'Back', restaurants_path(@restaurants) %>
+<div class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item">
+      <small>
+        <% count = 0 %>
+        <% 5.times do %>
+          <% if review.rating > count %>
+            <i class="fa-solid fa-star"></i>
+          <% else %>
+            <i class="fa-regular fa-star"></i>
+          <% end %>
+          <% count += 1 %>
+        <% end %>
+      </small>
+      <p><%= review.content %></p>
+    </li>
+  <% end %>
+</div>

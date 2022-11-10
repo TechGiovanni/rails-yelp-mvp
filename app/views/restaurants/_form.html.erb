@@ -7,7 +7,7 @@
   <%= f.label :phone_number%>
   <%= f.number_field :phone_number %>
   <%= f.select :category, ["chinese", "italian", "japanese", "french", "belgian"] %>
-  <%= f.submit %>
+  <%= f.submit class: 'btn btn-primary' %>
 <% end %>
 
 <%= simple_form_for [@restaurant, @review] do |f| %>
