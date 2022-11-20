@@ -1,10 +1,16 @@
-<h1>All Restaurants</h1>
 
-<ul class="index__list--link">
-    <% @restaurants.each do |resto| %>
-      <li class="index__list">
-      <%= link_to resto.name, restaurant_path(resto) %>
-      </li>
-    <% end %>
-</ul>
-<%= link_to "Add a new Restaurant", new_restaurant_path, class: 'btn btn-primary' %>
+<div class="wrapper__all">
+  <div>
+    <h1 class="index__title">All Restaurants</h1>
+  </div>
+
+  <ul class="index__list--link">
+      <% @restaurants.each do |resto| %>
+        <li class="index__list">
+        <%= link_to resto.name, restaurant_path(resto)%>
+        </li>
+      <% end %>
+  </ul>
+
+  <%= link_to "Add a new Restaurant", new_restaurant_path, class: 'btn btn-primary text text-light p-3' %>
+</div>

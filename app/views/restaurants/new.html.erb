@@ -1,2 +1,11 @@
 <!-- app/views/restaurants/new.html.erb -->
-<%= render partial: 'form', object: @restaurant %>
+<% category = %w[chinese italian japanese french belgian] %>
+
+<%= simple_form_for(@restaurant) do |f| %>
+  <%= f.label :name %>
+  <%= f.input_field :name %>
+  <%= f.label :address %>
+  <%= f.input_field :address %>
+  <%= f.input :category, collection: category %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
